@@ -1,0 +1,39 @@
+﻿@model List<PhoneContact>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">شماره تلفن</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+
+            <tr>
+
+                <td>@item.PhoneContactId</td>
+                <td>
+                    <span class="badge"> @item.PhoneNumber</span>
+
+                </td>
+
+
+
+                <td>
+                   
+                    <a onclick="return confirm( 'ایا مایل ب حذف شماره هستید؟')" href="/ManagContact/DeletePhone?PhoneContactId=@item.PhoneContactId" class="btn btn-danger btn-sm"> حذف شماره</a>
+                    <a href="/ManagContact/UpdatePhone?PhoneContactId=@item.PhoneContactId" class="btn btn-info btn-sm">ویرایش شماره</a>
+
+                </td>
+
+            </tr>
+
+
+        }
+
+    </tbody>
+</table>
+

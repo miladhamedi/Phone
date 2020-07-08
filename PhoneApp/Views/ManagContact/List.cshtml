@@ -1,0 +1,66 @@
+﻿@model List<Contact>
+
+@{
+    ViewData["Title"] = " لیست مخاطبین";
+}
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">نام</th>
+            <th scope="col">نام خانوادگی</th>
+            <th scope="col">کدملی</th>
+            <th scope="col">شماره موبایل</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+
+            <tr>
+
+                <td>@item.ContactId</td>
+                <td>@item.Firstname</td>
+                <td>@item.LastName</td>
+                <td>@item.NationalCode</td>
+                <td>
+
+
+                    @foreach (var item2 in item.PhoneContacts)
+
+                    {
+                    @if (item.PhoneContacts.Count() > 0)
+                    {
+                    <span class="badge"> @item2.PhoneNumber</span>
+                       
+
+                    }
+                    }
+                </td>
+
+
+
+                <td>
+
+                    <a onclick="return confirm( 'ایا مایل ب حذف کاربر هستید؟')" href="/ManagContact/Delete?ContactId=@item.ContactId" class="btn btn-danger btn-sm"> حذف کاربر</a>
+                    <a href="/ManagContact/Update?ContactID=@item.ContactId" class="btn btn-warning btn-sm">ویرایش کاربر</a>
+                    <a href="/ManagContact/ListPhoneNumber" class="btn btn-info btn-sm">ویرایش/حذف شماره</a>
+
+                </td>
+
+            </tr>
+
+
+        }
+
+    </tbody>
+</table>
+
+
+
+
+

@@ -1,0 +1,34 @@
+﻿@model ContactPhoneViewModel
+
+<div class="card">
+
+    <h5 class="card-header info-color white-text text-center py-4">
+        <strong>ویرایش شماره</strong>
+    </h5>
+
+    <!--Card content-->
+    <div class="card-body col-md-6">
+
+        <!-- Form -->
+        <form class="text-center" style="color: #757575;" action="UpdatePhone" method="post">
+            <input name="PhoneContactId" asp-for="PhoneContactId" type="hidden" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Name -->
+            <div class="md-form mt-3">
+                <input placeholder="شمارموبایل" asp-for="PhoneNumber" type="text" id="materialSubscriptionFormPasswords" class="form-control">
+                <label for="materialSubscriptionFormPasswords"></label>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">ویرایش شماره</button>
+
+        </form>
+        <!-- Form -->
+
+    </div>
+
+</div>
+
+
